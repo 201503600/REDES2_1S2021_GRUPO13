@@ -3,9 +3,11 @@ version: '3.5'
 services: 
   mongo-container:
     container_name: mongo-container
-    image: mongo:latest
+    build:
+      dockerfile: Dockerfile
+      context: ./database/
     volumes:
-      - ./datebase/data:/data/db
+      - ./database/data:/data/db
     ports:
       - "27017:27017"
     restart: on-failure
