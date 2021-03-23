@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import mongoKeys from "../keys/mongoKey";
+import mongoKeys from "../../keys/mongoKey";
 
 mongoose.connect(
   `mongodb+srv://${mongoKeys.user}:${mongoKeys.password}@${mongoKeys.host}`,

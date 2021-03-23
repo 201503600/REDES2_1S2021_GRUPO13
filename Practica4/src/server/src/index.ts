@@ -1,5 +1,5 @@
 import { App } from './app'
-import  "../db/connection";
+import  "./models/db/connection";
 
 async function main(){
 
