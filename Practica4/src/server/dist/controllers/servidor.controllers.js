@@ -22,7 +22,7 @@ class ServerController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const newReport = new reporte_1.Reporte(req.body);
-                newReport.servidor = process.env.CARNET;
+                newReport.servidor = process.env.CARNET_1;
                 yield newReport.save();
                 return res.status(200).json({ nombre: newReport.nombre, id: newReport.id, date: newReport.createdAt });
             }

@@ -1,9 +1,9 @@
 import { App } from './app'
-import  "./models/db/connection";
+import  "./db/connection";
 
 async function main(){
 
-    const app = new App(process.env.PORT || 3001);
+    const app = new App(process.env.PORT_1 || 3001);
 
     await app.listen();
 }

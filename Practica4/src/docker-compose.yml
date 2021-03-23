@@ -1,0 +1,18 @@
+version: '3.5'
+
+services: 
+
+  servidor1:
+    container_name: servidor1
+    build: ./server/
+    env_file: .env
+    ports: 
+      - '3001:3001'
+
+  mongo:
+      container_name: mongo
+      image: mongo
+      volumes:
+        - ./data:/data/db
+      ports:
+        - "27017:27017"

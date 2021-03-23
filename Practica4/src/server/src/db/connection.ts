@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
-import mongoKeys from "../../keys/mongoKey";
 
-mongoose.connect(
-  `mongodb+srv://${mongoKeys.user}:${mongoKeys.password}@${mongoKeys.host}`,
+let mongoDB = "mongodb://mongo:27017/redestemp";
+
+mongoose.connect(mongoDB,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    //useCreateIndex: true,
+    useCreateIndex: true,
   }
 );
 
