@@ -1,15 +1,6 @@
 version: '3.5'
 
 services: 
-
-  servidor1:
-    container_name: servidor1
-    build: ./server/
-    env_file: .env
-    ports: 
-      - '3001:3001'
-
-
   mongo-container:
     container_name: mongo-container
     image: mongo:latest
@@ -18,4 +9,26 @@ services:
     ports:
       - "27017:27017"
     restart: on-failure
+    networks:
+      testing_net:
+            ipv4_address: 10.10.4.3
+
+  servidor1:
+    container_name: servidor1
+    build: ./server/
+    env_file: .env
+    ports: 
+      - '3001:3001'
+    networks:
+      testing_net:
+            ipv4_address: 10.10.4.2
+
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 10.10.4.0/24
+
+
 
