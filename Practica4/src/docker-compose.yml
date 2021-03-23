@@ -9,10 +9,13 @@ services:
     ports: 
       - '3001:3001'
 
-  mongo:
-      container_name: mongo
-      image: mongo
-      volumes:
-        - ./data:/data/db
-      ports:
-        - "27017:27017"
+
+  mongo-container:
+    container_name: mongo-container
+    image: mongo:latest
+    volumes:
+      - ./datebase/data:/data/db
+    ports:
+      - "27017:27017"
+    restart: on-failure
+
