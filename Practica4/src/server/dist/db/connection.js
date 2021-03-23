@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const mongoKey_1 = __importDefault(require("../keys/mongoKey"));
-mongoose_1.default.connect(`mongodb+srv://${mongoKey_1.default.user}:${mongoKey_1.default.password}@${mongoKey_1.default.host}`, {
+let mongoDB = "mongodb://mongo:27017/redestemp";
+mongoose_1.default.connect(mongoDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    //useCreateIndex: true,
+    useCreateIndex: true,
 });
 mongoose_1.default.connection.on("open", () => console.log("Succesfully mongodb"));
