@@ -3,9 +3,7 @@ version: '3.5'
 services: 
   mongo-container:
     container_name: mongo-container
-    build:
-      dockerfile: Dockerfile
-      context: ./database/
+    build: ./database/
     volumes:
       - ./database/data:/data/db
     ports:

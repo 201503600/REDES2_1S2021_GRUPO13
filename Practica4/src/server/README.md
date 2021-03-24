@@ -55,8 +55,21 @@
     "date": "2021-03-23T04:51:23.067Z"
 }
 ```
+# Desarrollo
+ Descargar modulos de node:
 
+ ```shell
+ $ npm i
+```
 
+Correr en modo desarrollador:
+ ```shell
+ $ npm run dev
+```
+Construir código para producción
+ ```shell
+ $ npm run build
+```
 
 
 
