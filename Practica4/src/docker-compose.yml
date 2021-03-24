@@ -8,6 +8,10 @@ services:
       - ./database/data:/data/db
     ports:
       - "27017:27017"
+    networks:
+      testing_net:
+            ipv4_address: 182.18.7.5
+
 
   servidor1:
     container_name: servidor1
@@ -15,7 +19,16 @@ services:
     env_file: .env
     ports: 
       - '3001:3001'
+    networks:
+      testing_net:
+            ipv4_address: 182.18.7.6
 
+networks:
+  testing_net:
+      ipam:
+          driver: default
+          config:
+              - subnet: 182.18.7.0/24
 
 
 

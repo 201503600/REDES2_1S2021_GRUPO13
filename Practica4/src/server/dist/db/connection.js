@@ -9,7 +9,7 @@ mongoose_1.default.set('useNewUrlParser', true);
 mongoose_1.default.set('useFindAndModify', true);
 mongoose_1.default.set('useCreateIndex', true);
 mongoose_1.default.set('useUnifiedTopology', true);
-let mongoDB = "mongodb://mongo-container:27017/redes2";
+let mongoDB = "mongodb://182.18.7.5:27017/redes2";
 mongoose_1.default.connect(mongoDB);
 mongoose_1.default.Promise = global.Promise;
 let db = mongoose_1.default.connection;
