@@ -28,7 +28,7 @@ class ServerController {
             }
             catch (error) {
                 return res.status(500).json({
-                    msg: 'No se pudo crear el reporte',
+                    error,
                 });
             }
         });
@@ -41,7 +41,7 @@ class ServerController {
             }
             catch (error) {
                 return res.status(500).json({
-                    msg: 'El reporte ' + req.params.id + ' no existe'
+                    error
                 });
             }
         });
