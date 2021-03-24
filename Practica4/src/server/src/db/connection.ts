@@ -6,7 +6,7 @@ mongoose.set('useFindAndModify', true);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-let mongoDB = "mongodb://127.0.0.1:27017/redes2";
+let mongoDB = "mongodb://mongo-container:27017/redes2";
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
