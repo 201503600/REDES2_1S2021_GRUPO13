@@ -5,7 +5,7 @@ services:
     container_name: mongo-container
     image: mongo:latest
     volumes:
-      - ./dataMongo:/data/db
+      - /dataMongo:/data/db
     ports:
       - "27017"
     networks:
