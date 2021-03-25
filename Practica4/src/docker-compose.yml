@@ -17,9 +17,7 @@ services:
     build: ./server/
     env_file: .env
     ports: 
-      - $PORT_1:$PORT_1
-    environment: 
-      CARNET_1 : $CARNET_1
+      - '3001:3001'
     networks:
       service_network:
         ipv4_address: 172.35.73.10
