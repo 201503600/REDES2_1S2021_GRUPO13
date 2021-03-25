@@ -15,10 +15,10 @@ services:
   servidor1:
     container_name: servidor1
     build: ./server/
-    env_file: .env
     ports: 
       - '3001:3001'
     environment: 
+      PORT_1: 3001
       CARNET_1: "201020126"
     networks:
       service_network:
@@ -29,10 +29,10 @@ services:
   servidor2:
     container_name: servidor2
     build: ./server2/
-    env_file: .env
     ports: 
       - '3002:3002'
     environment: 
+      PORT_1: 3002
       CARNET_2: "201503600"
     networks:
       service_network:
@@ -43,10 +43,10 @@ services:
   servidor3:
     container_name: servidor3
     build: ./server3/
-    env_file: .env
     ports: 
       - '3003:3003'
     environment: 
+      PORT_1: 3003
       CARNET_3: "201504231"
     networks:
       service_network:
