@@ -1,14 +1,14 @@
-# Servidor 1 
+# Servidor 3
 
-## Carnet: 201020126
+## Carnet: 201504231
 
 ## Endpoints
 
 |No|Método|Ruta|Descripción|
 |-|-|-|-|
-|1|GET| http://3.13.15.158:3001/| Retorna todos los reportes|
-|2|GET| http://3.13.15.158:3001/:_id |Reporna los datos de un reporte|
-|3|POST| http://3.13.15.158:3001/ |Creación de un reporte|
+|1|GET| http://3.13.15.158:3003/| Retorna todos los reportes|
+|2|GET| http://3.13.15.158:3003/:_id |Reporna los datos de un reporte|
+|3|POST| http://3.13.15.158:3003/ |Creación de un reporte|
  
  ### Endpoint 2
 
