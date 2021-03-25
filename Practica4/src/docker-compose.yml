@@ -25,6 +25,20 @@ services:
         ipv4_address: 172.35.73.10
       db_network:
         ipv4_address: 10.10.13.20
+  
+  servidor2:
+    container_name: servidor2
+    build: ./server2/
+    env_file: .env
+    ports: 
+      - '3002:3002'
+    environment: 
+      CARNET_2: "201503600"
+    networks:
+      service_network:
+        ipv4_address: 172.35.73.20
+      db_network:
+        ipv4_address: 10.10.13.30
 
 networks:
   db_network:
