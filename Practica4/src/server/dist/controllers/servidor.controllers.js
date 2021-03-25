@@ -23,8 +23,6 @@ class ServerController {
             try {
                 const newReport = new reporte_1.Reporte(req.body);
                 newReport.servidor = process.env.CARNET_1;
-                newReport.servidor = '22222';
-                console.log(newReport);
                 yield newReport.save();
                 return res.status(200).json({ nombre: newReport.nombre, id: newReport.id, date: newReport.createdAt });
             }

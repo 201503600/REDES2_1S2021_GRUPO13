@@ -3,9 +3,9 @@ version: '3.5'
 services: 
   mongo-container:
     container_name: mongo-container
-    build: ./database/
+    image: mongo:latest
     volumes:
-      - ./database/data:/data/db
+      - ./dataMongo:/data/db
     ports:
       - "27017"
     networks:
@@ -17,7 +17,7 @@ services:
     build: ./server/
     env_file: .env
     ports: 
-      - '3001:3001'
+      - $PORT_1:$PORT_1 
     networks:
       service_network:
         ipv4_address: 172.35.73.10
