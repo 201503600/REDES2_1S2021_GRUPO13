@@ -5,7 +5,7 @@ services:
     container_name: mongo-container
     image: mongo:latest
     volumes:
-      - /dataMongo:/data/db
+      - /home/dataMongo:/data/db
     ports:
       - "27017"
     networks:
@@ -16,9 +16,9 @@ services:
     container_name: servidor1
     build: ./server/
     ports: 
-      - '3001:3001'
+      - '3002:3002'
     environment: 
-      PORT_1: 3001
+      PORT_1: 3002
       CARNET_1: "201020126"
     networks:
       service_network:
@@ -30,9 +30,9 @@ services:
     container_name: servidor2
     build: ./server2/
     ports: 
-      - '3002:3002'
+      - '3003:3003'
     environment: 
-      PORT_1: 3002
+      PORT_1: 3003
       CARNET_2: "201503600"
     networks:
       service_network:
@@ -44,15 +44,29 @@ services:
     container_name: servidor3
     build: ./server3/
     ports: 
-      - '3003:3003'
+      - '3004:3004'
     environment: 
-      PORT_1: 3003
+      PORT_1: 3004
       CARNET_3: "201504231"
     networks:
       service_network:
         ipv4_address: 172.35.73.30
       db_network:
         ipv4_address: 10.10.13.40
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - servidor1
+      - servidor2
+      - servidor3
+    ports:
+      - "3001:3001"
+    networks:
+      service_network:
+        ipv4_address: 172.35.73.40
 
 networks:
   db_network:
