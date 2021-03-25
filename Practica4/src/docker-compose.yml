@@ -16,9 +16,9 @@ services:
     container_name: servidor1
     build: ./server/
     env_file: .env
+    script : echo $PORT_1
     ports:
       - $PORT_1:$PORT_1
-    env_file: .env
     environment:
       PORT_1   : $PORT_1
       CARNET_1 : $CARNET_1
