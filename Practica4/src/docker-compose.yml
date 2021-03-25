@@ -18,6 +18,8 @@ services:
     env_file: .env
     ports: 
       - '3001:3001'
+    environment: 
+      CARNET_1: "201020126"
     networks:
       service_network:
         ipv4_address: 172.35.73.10
