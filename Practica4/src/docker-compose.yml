@@ -5,11 +5,7 @@ services:
     container_name: mongo-container
     image: mongo:latest
     volumes:
-<<<<<<< HEAD
-      - /dataMongo:/data/db
-=======
       - /home/dataMongo:/data/db
->>>>>>> 6221db1eb1e8faffa2c4ecb40a7483d2be53d809
     ports:
       - "27017"
     networks:
@@ -19,20 +15,11 @@ services:
   servidor1:
     container_name: servidor1
     build: ./server/
-<<<<<<< HEAD
-    ports: 
-      - '3001:3001'
-    environment: 
-      PORT_1: 3001
-      CARNET_1: "201020126"
-=======
-    entrypoint: env
-    environment: 
-      PORT_1: "${PORT_1}"
-      CARNET_1: "${CARNET_1}"
     ports: 
       - '3002:3002'
->>>>>>> 6221db1eb1e8faffa2c4ecb40a7483d2be53d809
+    environment: 
+      PORT_1: 3002
+      CARNET_1: "201010126"
     networks:
       service_network:
         ipv4_address: 172.35.73.10
@@ -43,15 +30,9 @@ services:
     container_name: servidor2
     build: ./server2/
     ports: 
-<<<<<<< HEAD
-      - '3002:3002'
-    environment: 
-      PORT_1: 3002
-=======
       - '3003:3003'
     environment: 
       PORT_2: 3003
->>>>>>> 6221db1eb1e8faffa2c4ecb40a7483d2be53d809
       CARNET_2: "201503600"
     networks:
       service_network:
@@ -63,15 +44,9 @@ services:
     container_name: servidor3
     build: ./server3/
     ports: 
-<<<<<<< HEAD
-      - '3003:3003'
-    environment: 
-      PORT_1: 3003
-=======
       - '3004:3004'
     environment: 
       PORT_3: 3004
->>>>>>> 6221db1eb1e8faffa2c4ecb40a7483d2be53d809
       CARNET_3: "201504231"
     networks:
       service_network:
@@ -79,8 +54,6 @@ services:
       db_network:
         ipv4_address: 10.10.13.40
 
-<<<<<<< HEAD
-=======
   nginx:
     image: nginx:latest
     volumes:
@@ -94,8 +67,18 @@ services:
     networks:
       service_network:
         ipv4_address: 172.35.73.40
+  
+  frontend:
+    container_name: frontend1
+    build: ./frontend/pr4front/
+    ports: 
+      - '80:80'
+    networks:
+      service_network:
+        ipv4_address: 172.35.73.50
+      frontend_network:
+        ipv4_address: 192.168.53.10
 
->>>>>>> 6221db1eb1e8faffa2c4ecb40a7483d2be53d809
 networks:
   db_network:
     driver: bridge
@@ -110,6 +93,13 @@ networks:
       driver: default
       config:
         - subnet: 172.35.73.0/24
+
+  frontend_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.53.0/24
 
 
 
