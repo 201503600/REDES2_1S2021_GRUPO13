@@ -37,11 +37,11 @@ class ServerController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const reporte = yield reporte_1.Reporte.findById({ _id: req.params.id });
-                res.status(200).json(reporte);
-                reporte.servidoractual = process.env.CARNET_1;
+                reporte.servidoractual = process.env.CARNET_3;
                 console.log('---------------------------------------');
                 console.log(reporte);
                 console.log('---------------------------------------');
+                res.status(200).json(reporte);
             }
             catch (error) {
                 return res.status(500).json({
