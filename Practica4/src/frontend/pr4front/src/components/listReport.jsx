@@ -17,6 +17,12 @@ const useStyles = makeStyles({
     },
   });
 
+const axiosInstance = axios.create({
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
+  });
+
 function createData(carnet, nombre_, proyecto, fecha, servidor) {
     return { carnet, nombre_, proyecto, fecha, servidor };
 }
@@ -37,7 +43,7 @@ export default function ListReport(){
     const handleClose = () => setShow(false);
     const handleShow = async (e) => {
         setShow(true)
-        let response = await axios
+        let response = await axiosInstance
             .get(process.env.BACK||"http://172.35.73.40:3001/"+e.currentTarget.value)
             .then((res) => {
                 
@@ -53,7 +59,7 @@ export default function ListReport(){
     };
     
     const getInterval = async () => {
-        let response = await axios
+        let response = await axiosInstance
             .get(process.env.BACK||"http://172.35.73.40:3001/")
             .then((res) => {
                 

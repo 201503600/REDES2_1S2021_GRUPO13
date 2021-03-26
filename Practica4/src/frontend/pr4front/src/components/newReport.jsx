@@ -3,6 +3,13 @@ import axios from "axios";
 import { useEffect } from "react";
 import { FormControl,InputLabel,Input,FormHelperText ,TextareaAutosize} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+
+const axiosInstance = axios.create({
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
+  });
+
 export default function NewReport(){
     const [carnet, setCarnet] = useState('');
     const [nombre, setNombre] = useState('');
@@ -16,7 +23,7 @@ export default function NewReport(){
             curso: curso,
             detalle: detalle
         }
-        let response = await axios.post(process.env.BACK||"http://172.35.73.40:3001/", objeto);
+        let response = await axiosInstance.post(process.env.BACK||"http://172.35.73.40:3001/", objeto);
         console.log(response.data);
         setCarnet("");
         setNombre("");
