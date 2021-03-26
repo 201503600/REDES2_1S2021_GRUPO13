@@ -77,8 +77,6 @@ networks:
 Todos los contenedores fueron creados dentro de una instancia de Amazon EC2.
 
 ![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/develop/Practica4/images/Arquitectura.png)
-<<<<<<< HEAD
-
 
 ## **Docker-compose**
 Como se menciono anteriormente, para la creacion e inicio de los contenedores se utilizo `Docker Compose` en el cual con la etiqueta `services:` se definen cada uno de los contenedores a utilizar.
