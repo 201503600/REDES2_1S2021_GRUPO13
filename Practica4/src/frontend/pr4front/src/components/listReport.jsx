@@ -84,11 +84,14 @@ export default function ListReport(){
                 <p>Curso: {dataOne.curso}</p>
                 <p>Detalle: {dataOne.detalle}</p>
                 <p>servidor: {dataOne.servidor}</p>
-                <p>Fecha</p> {dataOne.updatedAt} </Modal.Body>
+                <p>Fecha</p> {dataOne.updatedAt} 
+                
+                </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
+                <p><b>Solicitud atendida por el servidor{dataOne.servidoractual}</b></p> 
                 </Modal.Footer>
             </Modal>
             
