@@ -38,6 +38,10 @@ class ServerController {
             try {
                 const reporte = yield reporte_1.Reporte.findById({ _id: req.params.id });
                 res.status(200).json(reporte);
+                reporte.servidoractual = process.env.CARNET_1;
+                console.log('---------------------------------------');
+                console.log(reporte);
+                console.log('---------------------------------------');
             }
             catch (error) {
                 return res.status(500).json({

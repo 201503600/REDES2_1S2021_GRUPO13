@@ -24,6 +24,11 @@ class ServerController {
     public async getReport(req: Request, res: Response) {
         try {
             const reporte = await Reporte.findById({_id:req.params.id});
+            
+            reporte.servidoractual = process.env.CARNET_1;
+            console.log('---------------------------------------')
+            console.log(reporte)
+            console.log('---------------------------------------')
             res.status(200).json(reporte);
         } catch (error) {
             return res.status(500).json({
