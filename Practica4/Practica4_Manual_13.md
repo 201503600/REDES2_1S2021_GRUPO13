@@ -120,8 +120,6 @@ networks:
     <nombre_red>:
         ipv4_address: <direccion_ip>
 ```
-=======
->>>>>>> a4439e222c2d3768cc9d81d0f032264180629c62
 
 ## **Front End**
 Para el frontend se utilizo la herramienta de react, ya que es mucho más sencillo y rápido de implementar. Y con esta herramienta también se puede crear una app web mucho más liviana. 
