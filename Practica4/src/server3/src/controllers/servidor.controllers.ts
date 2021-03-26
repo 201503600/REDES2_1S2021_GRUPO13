@@ -25,7 +25,7 @@ class ServerController {
         try {
             const reporte = await Reporte.findById({_id:req.params.id});
             
-            reporte.servidoractual = process.env.CARNET_1;
+            reporte.servidoractual = process.env.CARNET_3;
             console.log('---------------------------------------')
             console.log(reporte)
             console.log('---------------------------------------')
