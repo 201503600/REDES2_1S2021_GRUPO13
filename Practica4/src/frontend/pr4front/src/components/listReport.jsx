@@ -95,9 +95,10 @@ export default function ListReport(){
                 </Modal.Body>
                 <Modal.Footer>
                 <p><b>Solicitud atendida por el servidor {dataOne.servidoractual}</b></p> 
-                <p><Button variant="secondary" onClick={handleClose}>
+                <br></br>
+                <><Button variant="secondary" onClick={handleClose}>
                     Close
-                </Button></p>
+                </Button></>
                 </Modal.Footer>
             </Modal>
             
