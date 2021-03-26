@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Modal from 'react-bootstrap/Modal';
 const useStyles = makeStyles({
     table: {
       minWidth: 650,
@@ -27,12 +28,33 @@ const rows = [
 
 export default function ListReport(){
     let interval;
-    const [datasgg, setData] = useState({ carnet: 0,createdAt:"ff",curso:"ff",detalle:"ff" , nombre: "ff", servidor: "ff",updatedAt:"ff",_id:"ff" });
+    const [datasgg, setData] = useState([]);
+    const [dataOne, setDataone] = useState([]);
     const classes = useStyles();
     var data = [];
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = async (e) => {
+        setShow(true)
+        let response = await axios
+            .get(process.env.BACK||"http://172.35.73.40:3001/"+e.currentTarget.value)
+            .then((res) => {
+                
+                data = res.data;
+                
+            return res.data;
+            })
+            .catch((e) => {
+            console.log(e);
+            });
+            setDataone(response)
+            console.log(response);
+    };
+    
     const getInterval = async () => {
         let response = await axios
-            .get("http://3.13.15.158:3001/")
+            .get(process.env.BACK||"http://172.35.73.40:3001/")
             .then((res) => {
                 
                 data = res.data;
@@ -44,11 +66,32 @@ export default function ListReport(){
             });
             setData(response);
     };  
-    getInterval();
-    console.log(datasgg);
+    useEffect(() => {
+        interval = setInterval(() => getInterval(), 3000);
+        return () => clearInterval(interval);
+      }, []);
+    //console.log(datasgg);
     return(
+        
         <div className="App">
             <h2 >Lista de reportes</h2>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Informacion Registro</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><p>Carnet: {dataOne.carnet}</p><p>Nombre: {dataOne.nombre}</p>
+                <p>Curso: {dataOne.curso}</p>
+                <p>Detalle: {dataOne.detalle}</p>
+                <p>servidor: {dataOne.servidor}</p>
+                <p>Fecha</p> {dataOne.updatedAt} </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                </Modal.Footer>
+            </Modal>
+            
             <TableContainer component={Paper}>
                 <Table className={classes.table} size="small" aria-label="a dense table">
                     <TableHead>
@@ -62,8 +105,8 @@ export default function ListReport(){
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.carnet}>
+                    {datasgg && datasgg.map((row,index) => (
+                        <TableRow key={index}>
                         <TableCell component="th" scope="row">
                             {row.carnet}
                         </TableCell>
@@ -71,7 +114,8 @@ export default function ListReport(){
                         <TableCell align="right">{row.curso}</TableCell>
                         <TableCell align="right">{row.updatedAt}</TableCell>
                         <TableCell align="right">{row.servidor}</TableCell>
-                        <TableCell align="right"><Button>Ver</Button></TableCell>
+                        <TableCell align="right"><Button  value={row._id} variant="primary" onClick={handleShow}>
+                Ver</Button></TableCell>
                         </TableRow>
                     ))}
                     </TableBody>
@@ -80,3 +124,4 @@ export default function ListReport(){
         </div>
     );
 }
+
