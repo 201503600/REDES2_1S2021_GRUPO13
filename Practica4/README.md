@@ -76,7 +76,7 @@ networks:
 
 Todos los contenedores fueron creados dentro de una instancia de Amazon EC2.
 
-![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/develop/Practica4/images/Arquitectura.png)
+![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/master/Practica4/images/Arquitectura.png)
 
 ## **Docker-compose**
 Como se menciono anteriormente, para la creacion e inicio de los contenedores se utilizo `Docker Compose` en el cual con la etiqueta `services:` se definen cada uno de los contenedores a utilizar.
@@ -95,7 +95,7 @@ container_name: <nombre_contenedor>
 Se define el puerto que estara expuesto en el contenedor para acceder a los servicios utilizados
 ```docker
 ports: 
- - '[puerto_fisico]:<puerto_contenedor>'
+ - '[puerto_host]:<puerto_contenedor>'
 ```
 > Variables de entorno
 
@@ -147,17 +147,17 @@ En esta vista se creó un formulario en el cual se debe ingresar los siguientes 
 >  - Curso asignado
 >  - Cuerpo del reporte
 
-![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/develop/Practica4/images/NewRep.png)
+![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/master/Practica4/images/NewRep.png)
 
 #### **Listado de reportes**
 En esta vista se realiza una peticion `GET` al servidor y obtiene como respuesta una lista con todos los reportes almacenados en la BD.
 
-![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/develop/Practica4/images/ListadoRep.png)
+![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/master/Practica4/images/ListadoRep.png)
 
 #### **Reporte individual**
 Al seleccionar un item de la vista anterior y presionar su opcion para visualizar el reporte individual, se muestra un cuadro de dialogo en el que se exponen todos los datos necesarios del reporte.
 
-![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/develop/Practica4/images/IndRep.png)
+![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/master/Practica4/images/IndRep.png)
 
 ## **Balanceador de Carga**
 Para el balanceador de carga se utilizo Nginx como servidor proxy inverso en el cual se realizo la siguiente configuracion para redirigir a los distintos servidores de NodeJs.
