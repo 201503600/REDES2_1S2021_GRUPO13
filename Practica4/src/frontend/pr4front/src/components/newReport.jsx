@@ -37,13 +37,13 @@ export default function NewReport(){
             <h2 >Ingreso de reportes de practicantes</h2>
             <FormControl>
             <InputLabel htmlFor="mi-campo">Carnet</InputLabel>
-            <Input id="mi-campo" aria-describedby="mi-texto-de-ayuda"  onChange={event => setCarnet(event.target.value)}/>
+            <Input id="mi-campo" aria-describedby="mi-texto-de-ayuda" value={carnet} onChange={event => setCarnet(event.target.value)}/>
             <FormHelperText id="mi-texto-de-ayuda">Ingrese nombre completo</FormHelperText>
-            <Input id="mi-campo2" aria-describedby="mi-texto-de-ayuda" onChange={event => setNombre(event.target.value)}/>
+            <Input id="mi-campo2" aria-describedby="mi-texto-de-ayuda" value={nombre} onChange={event => setNombre(event.target.value)}/>
             <FormHelperText id="mi-texto-de-ayuda">Ingrese el nombre de la clase</FormHelperText>
-            <Input id="mi-campo3" aria-describedby="mi-texto-de-ayuda" onChange={event => setCurso(event.target.value)} />
+            <Input id="mi-campo3" aria-describedby="mi-texto-de-ayuda" value={curso} onChange={event => setCurso(event.target.value)} />
             <FormHelperText id="mi-texto-de-ayuda">Curso/proyecto</FormHelperText>
-            <TextareaAutosize aria-label="empty textarea" placeholder="Cuerpo del reporte..." onChange={event => setDetalle(event.target.value)} />
+            <TextareaAutosize aria-label="empty textarea" placeholder="Cuerpo del reporte..." value={detalle} onChange={event => setDetalle(event.target.value)} />
             
             <Button variant="contained" color="primary" onClick={handleClick} >
                 Registrar
