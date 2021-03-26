@@ -23,7 +23,7 @@ export default function NewReport(){
             curso: curso,
             detalle: detalle
         }
-        let response = await axiosInstance.post(process.env.BACK||"http://172.35.73.40:3001/", objeto);
+        let response = await axiosInstance.post(process.env.BACK||"http://3.13.15.158:3001/", objeto);
         console.log(response.data);
         setCarnet("");
         setNombre("");
