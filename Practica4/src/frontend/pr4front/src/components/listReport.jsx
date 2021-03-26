@@ -89,16 +89,15 @@ export default function ListReport(){
                 <Modal.Body><p>Carnet: {dataOne.carnet}</p><p>Nombre: {dataOne.nombre}</p>
                 <p>Curso: {dataOne.curso}</p>
                 <p>Detalle: {dataOne.detalle}</p>
-                <p>servidor: {dataOne.servidor}</p>
-                <p>Fecha</p> {dataOne.updatedAt} 
+                <p>Procesado por: {dataOne.servidor}</p>
+                <p>Fecha: {dataOne.updatedAt} </p> 
                 
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <p><b>Solicitud atendida por el servidor {dataOne.servidoractual}</b></p> 
+                <p><Button variant="secondary" onClick={handleClose}>
                     Close
-                </Button>
-                <br></br>
-                <p><b>Solicitud atendida por el servidor{dataOne.servidoractual}</b></p> 
+                </Button></p>
                 </Modal.Footer>
             </Modal>
             
