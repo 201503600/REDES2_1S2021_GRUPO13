@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useState } from 'react';
 import NewReport  from './components/newReport';
 import ListReport  from './components/listReport';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [estado, setEstado] = useState(0)
   return (
@@ -20,7 +21,7 @@ function App() {
         </Button>
         
           <div id="rcorners3" >
-            {estado==0? <NewReport></NewReport>: <ListReport></ListReport>}
+            {estado==0? <ListReport></ListReport>:<NewReport></NewReport> }
           </div>
         </div>
       </header>
