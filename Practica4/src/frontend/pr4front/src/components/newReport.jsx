@@ -16,7 +16,7 @@ export default function NewReport(){
             curso: curso,
             detalle: detalle
         }
-        let response = await axios.post("http://3.13.15.158:3001/", objeto);
+        let response = await axios.post(process.env.BACK||"http://3.13.15.158:3001/", objeto);
         console.log(response.data);
         
         //console.log(objeto)

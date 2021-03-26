@@ -13,7 +13,11 @@ const app_1 = require("./app");
 require("./db/connection");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
+<<<<<<< HEAD
         const app = new app_1.App(process.env.PORT_2 || 3002);
+=======
+        const app = new app_1.App(process.env.PORT_2 || 3003);
+>>>>>>> 6221db1eb1e8faffa2c4ecb40a7483d2be53d809
         yield app.listen();
     });
 }
