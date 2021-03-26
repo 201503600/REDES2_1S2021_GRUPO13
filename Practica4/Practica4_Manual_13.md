@@ -77,6 +77,7 @@ networks:
 Todos los contenedores fueron creados dentro de una instancia de Amazon EC2.
 
 ![](https://github.com/201503600/REDES2_1S2021_GRUPO13/blob/develop/Practica4/images/Arquitectura.png)
+<<<<<<< HEAD
 
 
 ## **Docker-compose**
@@ -119,6 +120,8 @@ networks:
     <nombre_red>:
         ipv4_address: <direccion_ip>
 ```
+=======
+>>>>>>> a4439e222c2d3768cc9d81d0f032264180629c62
 
 ## **Front End**
 Para el frontend se utilizo la herramienta de react, ya que es mucho más sencillo y rápido de implementar. Y con esta herramienta también se puede crear una app web mucho más liviana. 
