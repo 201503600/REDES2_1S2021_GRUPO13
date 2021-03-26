@@ -22,6 +22,10 @@ const reporteSchema = Schema({
     servidor: {
         type: String,
         required: true
+    },
+    servidoractual: {
+        type: String,
+        required: false
     }
 }, {
     timestamps: true,
