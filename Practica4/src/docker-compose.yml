@@ -54,6 +54,21 @@ services:
       db_network:
         ipv4_address: 10.10.13.40
 
+  servidor4:
+    container_name: servidor4
+    build: ./server3/
+    ports: 
+      - '3005'
+    environment: 
+      PORT_3: 3005
+      CARNET_3: "123456"
+    networks:
+      service_network:
+        ipv4_address: 172.35.73.50
+      db_network:
+        ipv4_address: 10.10.13.50
+
+
   nginx:
     image: nginx:latest
     volumes:
@@ -62,6 +77,7 @@ services:
       - servidor1
       - servidor2
       - servidor3
+      - servidor4
     ports:
       - "3001:3001"
     networks:
