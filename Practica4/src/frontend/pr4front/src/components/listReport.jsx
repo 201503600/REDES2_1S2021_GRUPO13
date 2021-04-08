@@ -44,7 +44,7 @@ export default function ListReport(){
     const handleShow = async (e) => {
         setShow(true)
         let response = await axiosInstance
-            .get(process.env.BACK||"http://3.13.15.158:3001/"+e.currentTarget.value)
+            .get(process.env.BACK||"http://localhost:3001/"+e.currentTarget.value)
             .then((res) => {
                 
                 data = res.data;
@@ -60,7 +60,7 @@ export default function ListReport(){
     
     const getInterval = async () => {
         let response = await axiosInstance
-            .get(process.env.BACK||"http://3.13.15.158:3001/")
+            .get(process.env.BACK||"http://localhost:3001/")
             .then((res) => {
                 
                 data = res.data;

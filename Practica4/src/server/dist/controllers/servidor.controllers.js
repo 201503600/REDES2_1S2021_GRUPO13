@@ -8,21 +8,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serverController = void 0;
 const reporte_1 = require("../models/reporte");
-const path_1 = require("path");
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config({ path: path_1.resolve(__dirname, "../.env") });
 class ServerController {
     newReport(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const newReport = new reporte_1.Reporte(req.body);
-                newReport.servidor = process.env.CARNET_1;
+                newReport.servidor = process.env.CARNET;
                 yield newReport.save();
                 return res.status(200).json({ nombre: newReport.nombre, id: newReport.id, date: newReport.createdAt });
             }
@@ -37,10 +31,7 @@ class ServerController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const reporte = yield reporte_1.Reporte.findById({ _id: req.params.id });
-                reporte.servidoractual = process.env.CARNET_1;
-                console.log('---------------------------------------');
-                console.log(reporte);
-                console.log('---------------------------------------');
+                reporte.servidoractual = process.env.CARNET;
                 res.status(200).json(reporte);
             }
             catch (error) {
