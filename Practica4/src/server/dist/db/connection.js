@@ -11,6 +11,7 @@ mongoose_1.default.set('useCreateIndex', true);
 mongoose_1.default.set('useUnifiedTopology', true);
 let mongoDB = "mongodb://mongo-container:27017/redes2";
 mongoose_1.default.connect(mongoDB);
+mongoose_1.default.connect(mongoDB);
 mongoose_1.default.Promise = global.Promise;
 let db = mongoose_1.default.connection;
 db.on("error", console.error.bind(console, " ----  MongoDB connection error   ---- "));
