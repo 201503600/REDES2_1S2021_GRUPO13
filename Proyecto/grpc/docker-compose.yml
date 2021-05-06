@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  cliente-grpc:
+    build: ./client
+    
+  servidor-grpc:
+    build: ./server
+    ports:
+      - "8081:8081"
+    
+    
+    
+
