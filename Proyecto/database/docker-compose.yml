@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+    mongo:
+        image : mongo
+        container_name: mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: grupo13
+            MONGO_INITDB_ROOT_PASSWORD: grupo13
+            MONGO_INITDB_DATABASE: proyecto
+        volumes:
+        - ../../mongo_data_container:/data/db
+        ports:
+        - 27017:27017
