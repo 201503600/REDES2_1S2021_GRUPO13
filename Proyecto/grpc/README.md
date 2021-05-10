@@ -22,6 +22,11 @@ $ go run grpc-client/client.go
 
 $ sudo docker run -it -d -p 50051:50051 --name=servidor sandyfabiola13/servidor_redes2:v1
 
+
+
+
+
+$ sudo docker build -t servidor .
 # API 1
 
 $ sudo docker run -it -d -p 8081:8081 --name=api1 sandyfabiola13/api_redes2:v1
