@@ -112,7 +112,7 @@ func ConnectionMongodb2(message string) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://grupo13:grupo13@10.0.2.168:27017/proyecto"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://redes2:hola_123@cluster0.peofc.mongodb.net/proyecto?retryWrites=true&w=majority"))
 	defer func() {
 		if err = client.Disconnect(ctx); err != nil {
 			panic(err)
